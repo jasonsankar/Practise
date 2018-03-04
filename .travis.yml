@@ -1,0 +1,18 @@
+language: python
+
+#which versions to test
+python:
+  - '2.7'
+  - '3.3'
+
+#command to install dependencies
+install:
+  - pip install codecov
+  - pip install coverage
+
+script:
+  - python -m unittest discover -v ./python/ #command to run unit test
+  - coverage run ./python/test.py  #command to run code coverage
+
+#can do additional things, say send reports
+after_success:
