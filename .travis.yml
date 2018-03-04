@@ -16,4 +16,11 @@ script:
 
 #can do additional things, say send reports
 after_success:
-  - codecov --token=6ce49e65-8526-4cd4-8795-4e94a14feeb5
+  - codecov --token=6ce49e65-8526-4cd4-8795-4e94a14feeb5  #add this line when you find the repo on codecov, token can be found there as well
+
+deploy:
+    provider: s3
+    access_key_id: AKIAI7ERYMIWFIRKMQFA
+    secret_access_key: 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
+    bucket: www.simplewebsite.com
+    region: us-east-2
