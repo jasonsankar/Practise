@@ -16,3 +16,4 @@ script:
 
 #can do additional things, say send reports
 after_success:
+  - codecov --token=6ce49e65-8526-4cd4-8795-4e94a14feeb5
