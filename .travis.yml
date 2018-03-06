@@ -1,27 +1,20 @@
 language: python
-
-#which versions to test
 python:
-  - '2.7'
-  - '3.3'
-
-#command to install dependencies
+- '2.7'
+- '3.3'
 install:
-  - pip install codecov
-  - pip install coverage
-
+- pip install codecov
+- pip install coverage
 script:
-  - python -m unittest discover -v ./python/ #command to run unit test
-  - coverage run ./python/test.py  #command to run code coverage
-
-#can do additional things, say send reports
+- python -m unittest discover -v ./python/
+- coverage run ./python/test.py
 after_success:
-  - codecov --token=6ce49e65-8526-4cd4-8795-4e94a14feeb5  #add this line when you find the repo on codecov, token can be found there as well
-
+- codecov --token=6ce49e65-8526-4cd4-8795-4e94a14feeb5
 deploy:
-    provider: s3
-    access_key_id: AKIAI7ERYMIWFIRKMQFA
-    secret_access_key: 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
-    bucket: www.simplewebsite.com
-    local-dir: html
-    region: us-east-2
+  provider: s3
+  access_key_id: AKIAI7ERYMIWFIRKMQFA
+  secret_access_key:
+    secure: gne6r24KlOwLJXKZSvuBdM0TwcRe9y6w4zETAT0NjNi3mPcGOpgdoljTr1O3QBLwUPY9ddZf6HKNTxzVgbHIPzE3BMWabKzBAFM4ZUWOlN0a9S1PZIYnFoObGKDcouu3oEuPUuC84nTNHXTeDOfV0rRJ4HxIP3co4/rxT/yTgdLUNDTKkBzRMvxouZNKjOpV2PlowxSGDP3kK4mV4/IhS4eqhjsMc+4nCsX+rNTKrATsxT1h+36I4eDm841uuWo2XokJwODXcahaGAfyshO0PJ396dVT/5pv197tCypFrIQsermoByS2gTBxe5THN3hyWAMaMZnj51LZCv/frdcdknTQCvsxQBR0TA++SdTMsvwOcsBlxE/1hjIjVGn82+TtDG7UcJsf1kLTy3i1HsBv5UDrmdJxydicrrcoprMDe/j0LzwObl0KgBPmPF2SBwCXThnBDlBFrpDoBA9JWP0NJ87tlic7Dizu6HBmHqsGa6/MDv++cebIGFUNxJyz04TXg2SsM2Mp48KvasfpOTBUhPKNgYREP1Mzwie3zK/DnAjluPrE1MURkWeSulKciYqFNJfIL7v7sEeRMSLNPo5GGwGrOZTgHpPuWqneeD3fIkB2R+i2oOESvvrpdeIgXFllcE9LRgL4/p3QyX0JuTwbJrDfBjxK4mQ9OhVzZ+pnxl0=
+  bucket: www.simplewebsite.com
+  local-dir: html
+  region: us-east-2
